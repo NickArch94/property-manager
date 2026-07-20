@@ -1,5 +1,6 @@
 import React from 'react'
 import '@/assets/styles/globals.css'
+import Navbar from '@/components/Navbar'
 
 export const metadata = {
     title: 'Property Manager Training | Discover the Best Practices for Property Management',
@@ -11,7 +12,8 @@ const MainLayout = ({children}) => {
   return (
     <html lang="en">
       <body>
-      <div>{children}</div>
+        <Navbar />
+        <div>{children}</div>
       </body>
     </html>
   )

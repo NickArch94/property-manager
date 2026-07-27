@@ -14,7 +14,7 @@ const LoadingPage = ({ loading }) => {
         loading={loading}
         cssOverride={override}
         size={150}
-        aria-label="Loading Spinner"
+        aria-label="Loading Spinner" 
     />
   )
 }

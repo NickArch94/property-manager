@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import React from 'react'
 
 const HomePage = () => {
-  return (
+return (
     <div>
       <Hero />
       <InfoBoxes />

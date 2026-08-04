@@ -4,8 +4,7 @@ import HomeProperties from '@/components/HomeProperties'
 import Footer from '@/components/Footer'
 import React from 'react'
 
-const HomePage = () => {
-
+const HomePage = async () => {
 return (
     <div>
       <Hero />

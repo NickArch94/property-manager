@@ -1,10 +1,21 @@
 import connectDB from "@/config/database"
+import Property from "@/app/models/Property"
+import sampleProperties from "@/properties.json"
 
-export const GET = async (request) => {
+// get api/properties
+export const GET = async () => {
     try {
         await connectDB()
-        return new Response(JSON.stringify({message: 'Success!'}), { status:200 })
+        const properties = await Property.find({})
+
+        if (properties.length === 0) {
+            const seededProperties = await Property.insertMany(sampleProperties)
+            return Response.json(seededProperties)
+        }
+
+        return Response.json(properties)
     } catch (error) {
-        return new Response('Something went wrong', { status: 500 })
+        console.error("Error fetching properties:", error)
+        return Response.json(sampleProperties)
     }
 }

@@ -1,9 +1,8 @@
-import { Schema, model, models } from "mongoose"
+import mongoose, { Schema } from "mongoose"
 
 const PropertySchema = new Schema ({
     owner: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
+        type: String,
         required: true
     },
     name: {
@@ -35,12 +34,12 @@ const PropertySchema = new Schema ({
         type: Number,
         required: true
     },
-    Baths: {
+    baths: {
         type: Number,
         required: true
     },
     square_feet: {
-        type: number,
+        type: Number,
         required: true
     },
     amenities: [{
@@ -65,7 +64,7 @@ const PropertySchema = new Schema ({
             type: String
         },
         phone: {
-            type: Number
+            type: String
         }
     },
     images: [
@@ -81,6 +80,6 @@ const PropertySchema = new Schema ({
     timestamps: true
 })
 
-const Property = models.Property || model('Property', PropertySchema)
+const Property = mongoose.models.Property || mongoose.model('Property', PropertySchema)
 
 export default Property

@@ -1,13 +1,9 @@
-const apiDomain = 'http://localhost:3000/api/properties' || null
+const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || '/api'
 
 //fetch all properties
 async function fetchProperties() {
   try {
-    if (!apiDomain) {
-      return []
-    }
-
-    const res = await fetch(apiDomain)
+    const res = await fetch(`${apiDomain}/properties`)
 
     if (!res.ok) {
       throw new Error('Failed to fetch data')
@@ -23,11 +19,11 @@ async function fetchProperties() {
 //fetch single property
 async function fetchProperty(id) {
   try {
-    if (!apiDomain) {
+    if (!id) {
       return null
     }
 
-    const res = await fetch(`${apiDomain}/properties/${id}`)
+    const res = await fetch(`${apiDomain}/properties/${id.toString()}`)
 
     if (!res.ok) {
       throw new Error('Failed to fetch data')
@@ -35,7 +31,7 @@ async function fetchProperty(id) {
 
     return res.json()
   } catch (error) {
-    console.error('Error fetching properties:', error)
+    console.error('Error fetching property:', error)
     return null
   }
 }

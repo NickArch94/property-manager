@@ -11,7 +11,7 @@ export const GET = async (request, { params }) => {
             return new Response('Property not found', { status: 404 })
         } return new Response(JSON.stringify(property), { status: 200 })
     } catch (error) {
-        console.error("Error fetching properties:", error)
-        return Response.json(sampleProperties)
+        console.error("Error fetching property:", error)
+        return Response.json({ error: 'Error fetching property' }, { status: 500 })
     }
 }

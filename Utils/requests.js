@@ -19,7 +19,7 @@ async function fetchProperties() {
 //fetch single property
 async function fetchProperty(id) {
   try {
-    if (!id) {
+    if (!apiDomain) {
       return null
     }
 

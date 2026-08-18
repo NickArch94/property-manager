@@ -1,5 +1,5 @@
 import React from 'react'
-import image from 'next/image'
+import Image from 'next/image'
 
 const PropertyHeaderImage = ( {image} ) => {
   return (
@@ -13,6 +13,7 @@ const PropertyHeaderImage = ( {image} ) => {
             width={0}
             height={0}
             sizes='100vw'
+            priority={true}
           />
         </div>
       </div>

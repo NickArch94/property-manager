@@ -34,6 +34,7 @@ const PropertyDetails = ({ property }) => {
                 >
                   <div className="text-gray-500 mr-2 font-bold">Nightly</div>
                   <div className="text-2xl font-bold">
+                    
                     <FaTimes className='text-red-700' />
                   </div>
                 </div>

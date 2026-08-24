@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+  --grid-template-columns-property-layout: 70% 28%;
+}

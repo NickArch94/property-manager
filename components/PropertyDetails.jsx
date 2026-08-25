@@ -34,19 +34,28 @@ const PropertyDetails = ({ property }) => {
                 >
                   <div className="text-gray-500 mr-2 font-bold">Nightly</div>
                   <div className="text-2xl font-bold">
-                    
-                    <FaTimes className='text-red-700' />
+                    {property.rates.nightly ? (
+                        `$${property.rates.nightly.toLocaleString()}`
+                    ) : (<FaTimes className='text-red-700' />)}
                   </div>
                 </div>
                 <div
                   className="flex items-center justify-center mb-4 border-b border-gray-200 md:border-b-0 pb-4 md:pb-0"
                 >
                   <div className="text-gray-500 mr-2 font-bold">Weekly</div>
-                  <div className="text-2xl font-bold text-blue-500">$1,100</div>
+                  <div className="text-2xl font-bold text-blue-500">
+                    {property.rates.weekly ? (
+                        `${property.rates.weekly.toLocaleString()}`
+                    ) : (<FaTimes className='text-red-700' />)}
+                  </div>
                 </div>
                 <div className="flex items-center justify-center mb-4 pb-4 md:pb-0">
                   <div className="text-gray-500 mr-2 font-bold">Monthly</div>
-                  <div className="text-2xl font-bold text-blue-500">$4,200</div>
+                  <div className="text-2xl font-bold text-blue-500">
+                    {property.rates.monthly ? (
+                        `${property.rates.monthly.toLocaleString()}`
+                    ) : (<FaTimes className='text-red-700' />)}
+                  </div>
                 </div>
               </div>
             </div>
@@ -57,16 +66,16 @@ const PropertyDetails = ({ property }) => {
                 className="flex justify-center gap-4 text-blue-500 mb-4 text-xl space-x-9"
               >
                 <p>
-                  <FaBed className='inline-block mr-2'/> 3
+                  <FaBed className='inline-block mr-2'/> {property.details.beds}
                   <span className="hidden sm:inline">Beds</span>
                 </p>
                 <p>
-                  <FaBath className='inline-block mr-2'/> 2
+                  <FaBath className='inline-block mr-2'/> {property.details.baths}
                   <span className="hidden sm:inline">Baths</span>
                 </p>
                 <p>
                   <FaRulerCombined className='inline-block mr-2'/>
-                  1,500 <span className="hidden sm:inline">sqft</span>
+                  {property.details.sqft?.toLocaleString()} <span className="hidden sm:inline">sqft</span>
                 </p>
               </div>
               <p className="text-gray-500 mb-4">

@@ -6,6 +6,7 @@ import PropertyHeaderImage from '@/components/PropertyHeaderImage'
 import Link from 'next/link'
 import PropertyDetails from '@/components/PropertyDetails'
 import { FaArrowLeft } from 'react-icons/fa'
+import Spinner from '@/components/Spinner'
 
 const PropertyPage = () => {
   const { id } = useParams();
@@ -39,6 +40,7 @@ const PropertyPage = () => {
   
   return (
     <>
+    {loading && <Spinner loading={loading} />}
     {!loading && property && (<>
       <PropertyHeaderImage image={ property.images[0] } />
       <section>
@@ -149,7 +151,7 @@ const PropertyPage = () => {
     </section>
 
     {/* <!-- Images --> */}
-    <section className="bg-blue-50 p-4">
+    {/* <section className="bg-blue-50 p-4">
       <div className="container mx-auto">
         <div className="grid grid-cols-2 gap-4">
           <div className="col-span-2">
@@ -182,7 +184,7 @@ const PropertyPage = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
     </>
   )}
   </>
